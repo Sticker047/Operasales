@@ -1,4 +1,4 @@
-package com.sticker.operasales;
+package com.sticker.operaSales;
 
 import lombok.Data;
 
