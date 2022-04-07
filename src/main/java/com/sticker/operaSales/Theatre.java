@@ -13,13 +13,20 @@ public class Theatre {
         this.name = name;
     }
 
-    public void addOpera(Opera opera) {
-        Integer id = operaStorage.size();
+    public int addOpera(Opera opera) {
+        int id = operaStorage.size();
         operaStorage.put(id, opera);
+        System.out.println("Сохранено под номером " + id);
+        return id;
     }
 
     public void removeOpera(Integer id) {
-        operaStorage.remove(id);
+        if (operaStorage.containsKey(id)) {
+            operaStorage.remove(id);
+            System.out.println("Премьера " + id + " удалена");
+        } else {
+            System.out.println("Премьера не найдена");
+        }
     }
 
     public Opera getOpera(Integer id) {

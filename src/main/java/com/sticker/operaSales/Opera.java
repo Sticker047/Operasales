@@ -1,36 +1,48 @@
 package com.sticker.operaSales;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ForkJoinPool;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Opera {
     private String name;
     private String definition;
     private int ageCategory;
-    private boolean[] places;
-    private int width = 10;
+    private boolean[] places = new boolean[]{};
+    private int placesCount;
 
 
     public Opera(String name, String definition, int ageCategory, int placesCount) {
         this.name = name;
         this.definition = definition;
         this.ageCategory = ageCategory;
-        places = new boolean[placesCount];
+        this.placesCount = placesCount;
+        places = new boolean[this.placesCount];
     }
 
     public void buyTicket(int ticket) {
-        places[ticket] = true;
+        if (ticket < places.length) {
+            places[ticket] = true;
+        }
+        else {
+            System.out.println("Неверно выбран билет");
+        }
     }
 
     public void returnTicket(int ticket) {
-        places[ticket] = false;
+        if (ticket < places.length) {
+            places[ticket] = false;
+        }
+        else {
+            System.out.println("Неверно выбран билет");
+        }
     }
 
     public int countFreePlaces() {

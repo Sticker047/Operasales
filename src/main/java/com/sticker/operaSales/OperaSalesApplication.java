@@ -28,24 +28,25 @@ public class OperaSalesApplication {
     public static void main(String[] args) {
         SpringApplication.run(OperaSalesApplication.class, args);
 
-        /*
-        *ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        *Theatre theatre = context.getBean(Theatre.class);
-        */
-
         Theatre theatre = new Theatre("Большой театр");
 
-        theatre.addOpera(new Opera("Назад в будущее", "Шедевр", 12, 30));
-        theatre.addOpera(new Opera("Назад в будущее 2", "Шедевр2", 12, 30));
+        int opera1 = theatre.addOpera(new Opera("Назад в будущее", "Шедевр", 12, 30));
+        int opera2 = theatre.addOpera(new Opera("Назад в будущее 2", "Шедевр2", 12, 30));
+        int opera3 = theatre.addOpera(new Opera("Назад в будущее3", "Шедевр3", 12, 30));
 
-        theatre.getOpera(1).setAgeCategory(18);
-        theatre.getOpera(1).setDefinition("Новое описание");
+
+
+        theatre.getOpera(opera1).setAgeCategory(18);
+        theatre.getOpera(opera1).setDefinition("Новое описание");
 
         theatre.demo();
 
-        theatre.getOpera(0).buyTicket(20);
-        theatre.getOpera(0).buyTicket(21);
-        theatre.getOpera(0).buyTicket(22);
+        theatre.getOpera(opera2).buyTicket(20);
+        theatre.getOpera(opera2).buyTicket(21);
+        theatre.getOpera(opera2).demo();
+
+        theatre.getOpera(opera3).buyTicket(3);
+        theatre.getOpera(opera3).returnTicket(3);
 
         theatre.demo();
     }
