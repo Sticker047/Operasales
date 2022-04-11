@@ -1,12 +1,12 @@
 package com.sticker.operaSales;
 
+import com.sticker.operaSales.annotations.Notifier;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -63,7 +63,7 @@ public class Opera {
             }
         }
 
-        String res = list.stream().collect(Collectors.joining(" "));
+        String res = String.join(" ", list);
 
         return
                 name + "\nВозрастная категория: " + ageCategory +
@@ -72,6 +72,7 @@ public class Opera {
                 ;
     }
 
+    @Notifier
     public void demo() {
         System.out.println(
                 name + "\nКраткое описание: " + definition +

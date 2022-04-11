@@ -1,5 +1,7 @@
 package com.sticker.operaSales;
 
+import com.sticker.operaSales.annotations.Notifier;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -33,6 +35,7 @@ public class Theatre {
         return operaStorage.get(id);
     }
 
+    @Notifier
     public void demo() {
         String res = "В " + name + " идут следующие премьеры:\n\n";
 
