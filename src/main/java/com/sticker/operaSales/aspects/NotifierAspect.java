@@ -14,14 +14,14 @@ public class NotifierAspect {
     @Around("sendMessage()")
     public void sendMessageAround(ProceedingJoinPoint point) {
 
-        print("Запускаю " + point.getSignature().getName() + "()");
+        print("Был запущен " + point.getSignature().getName() + "()");
 
         try {
             point.proceed();
-            print("Всё ок " + point.getSignature().getName() + "()");
+            print("успешно " + point.getSignature().getName() + "()");
         } catch (Throwable throwable) {
             throwable.printStackTrace();
-            print("Ошибочка вышла " + point.getSignature().getName() + "()");
+            print("Неудачно с " + point.getSignature().getName() + "()");
         }
     }
 

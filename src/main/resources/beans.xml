@@ -6,6 +6,6 @@
            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="theatre" class="com.sticker.operaSales.Theatre"></bean>
-    <context:component-scan base-package="com.sticker.operaSales"/>
+    <bean id="theatre" class="com.sticker.operaSales.objects.Theatre"/>
+    <context:component-scan base-package="com.sticker.operaSales.objects"/>
 </beans>
